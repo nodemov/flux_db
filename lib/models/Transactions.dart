@@ -1,7 +1,7 @@
-class Transaction {
+class Transactions {
   String title; //ชื่อ
   double amount; //จำนวนงิน
   DateTime date; //เวลา
 
-  Transaction({this.title, this.amount, this.date});
+  Transactions({this.title, this.amount, this.date});
 }
