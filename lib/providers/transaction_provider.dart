@@ -9,6 +9,8 @@ class TransactionProvider with ChangeNotifier {
     Transaction(title: "เสื้อ", amount: 500, date: DateTime.now()),
     Transaction(title: "กางเกง", amount: 300, date: DateTime.now()),
     Transaction(title: "รองเท้า", amount: 900, date: DateTime.now()),
+    Transaction(title: "มือถือ", amount: 9900, date: DateTime.now()),
+
 
   ];
 
