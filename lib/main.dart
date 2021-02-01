@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flux_db/models/Transaction.dart';
 import 'package:flux_db/sceens/form/form_sceen.dart';
+import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/foundation.dart';
 import 'providers/transaction_provider.dart';
@@ -60,30 +61,42 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       body: Consumer(
           builder: (context, TransactionProvider provider, Widget child) {
-        return ListView.builder(
-            itemCount: provider.transactions.length,
-            itemBuilder: (context, int index) {
-              Transaction data = provider.transactions[index];
-              return Card(
-                elevation: 5,
-                margin: EdgeInsets.symmetric(horizontal: 8.0, vertical: 6.0),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Colors.green,
-                    child: FittedBox(
-                      child: Text(
-                        data.amount.toString(),
-                        style: TextStyle(color: Colors.white),
+        var count = provider.transactions.length;
+        if (count <= 0) {
+          return Center(
+            child: Text(
+              'ไม่พบข้อมูล เพิ่มเสีย',
+              style: TextStyle(fontSize: 40, color: Colors.red),
+            ),
+          );
+        } else {
+          return ListView.builder(
+              itemCount: count,
+              itemBuilder: (context, int index) {
+                Transaction data = provider.transactions[index];
+                return Card(
+                  elevation: 5,
+                  margin: EdgeInsets.symmetric(horizontal: 10.0, vertical: 8.0),
+                  child: ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.green,
+                      child: FittedBox(
+                        child: Text(
+                          data.amount.toString(),
+                          style: TextStyle(color: Colors.white),
+                        ),
                       ),
+                      radius: 30,
                     ),
-                    radius: 20,
+                    title: Text(data.title.toString()),
+                    subtitle: Text(
+                        DateFormat("dd/MM/yyyy 'created at' HH:mm:ss ")
+                            .format(data.date)),
                   ),
-                  title: Text(data.title.toString()),
-                  subtitle: Text(data.date.toString()),
-                ),
-                // elevation: ,
-              );
-            });
+                  // elevation: ,
+                );
+              });
+        }
       }),
     );
   }
