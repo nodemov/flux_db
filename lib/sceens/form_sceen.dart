@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../models/Transactions.dart';
-import '../../providers/transaction_provider.dart';
+import '../models/Transactions.dart';
+import '../providers/transaction_provider.dart';
 
 class FormSceen extends StatelessWidget {
   final formKey = GlobalKey<FormState>();
