@@ -1,10 +1,6 @@
 # flux_db
 
 A new Flutter project.
-# Demo
-![Home Pgae](https://i.imgur.com/fjYJHyO.png)
-![Add Pgae](https://i.imgur.com/Z9HkFtc.png)
-## Getting Started
 
 ## Getting Started
 
