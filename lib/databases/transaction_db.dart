@@ -52,7 +52,7 @@ class TranscationDB {
     var snapshot = await store.find(db,
         finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
 
-    //
+    //test
     List transactionList = List<Transactions>();
     for (var record in snapshot) {
       transactionList.add(Transactions(
