@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flux_db/models/Transactions.dart';
 import 'package:flux_db/providers/transaction_provider.dart';
-import 'package:flux_db/sceens/form_sceen.dart';
+// import 'package:flux_db/sceens/form_sceen.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -26,11 +27,15 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text(widget.title),
         actions: [
           IconButton(
-              icon: Icon(Icons.add),
+              icon: Icon(Icons.exit_to_app_outlined),
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return FormSceen();
-                }));
+                SystemNavigator.pop();
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) {
+                //     return FormSceen();
+                //   }),
+                // );
               }),
         ],
       ),

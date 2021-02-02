@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flux_db/main.dart';
 import 'package:provider/provider.dart';
 import '../models/Transactions.dart';
 import '../providers/transaction_provider.dart';
@@ -21,8 +22,9 @@ class FormSceen extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Form(
           key: formKey,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+            // crossAxisAlignment: CrossAxisAlignment.start,
+            scrollDirection: Axis.vertical,
             children: [
               TextFormField(
                 controller: titleController,
@@ -55,6 +57,7 @@ class FormSceen extends StatelessWidget {
                   labelText: 'จำนวนเงิน',
                 ),
               ),
+              SizedBox(height: 12.0),
               FlatButton(
                 child: Text('เพิ่มข้อมูล'),
                 color: Colors.orange,
@@ -75,7 +78,15 @@ class FormSceen extends StatelessWidget {
                         listen: false);
                     provider.addTransaction(statement);
 
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          fullscreenDialog: true,
+                          builder: (context) {
+                            return MyHomePage();
+                          }),
+                    );
                   }
                 },
               ),
