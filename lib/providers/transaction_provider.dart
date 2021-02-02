@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flux_db/databases/transaction_db.dart';
+import 'package:flux_db/database/transaction_db.dart';
 import 'package:flux_db/models/Transactions.dart';
 
 class TransactionProvider with ChangeNotifier {
